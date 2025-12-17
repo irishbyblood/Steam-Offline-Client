@@ -16,38 +16,17 @@ Steam Offline Client is a command-line tool that helps you download and manage S
 
 ## Quick Start
 
-### Building the Application
-
 ```bash
 # Install the application
 pip install .
 
-# Or run directly
-python3 steam_offline_client.py --help
-```
-
-For detailed build instructions, see [BUILD.md](BUILD.md)
-
-### Basic Usage
-
-```bash
-# Set download path
+# Configure and use
 steam-offline-client --set-path ~/SteamGames
-
-# Add a game
 steam-offline-client --add-game 730 "Counter-Strike: Global Offensive"
-
-# List games
-steam-offline-client --list
-
-# Download a game
 steam-offline-client --download 730
-
-# Check status
-steam-offline-client --status
 ```
 
-For complete usage documentation, see [USAGE.md](USAGE.md)
+👉 **New to Steam Offline Client?** Check out the [QUICKSTART.md](QUICKSTART.md) guide!
 
 ## Requirements
 
@@ -56,6 +35,7 @@ For complete usage documentation, see [USAGE.md](USAGE.md)
 
 ## Documentation
 
+- [QUICKSTART.md](QUICKSTART.md) - Quick start guide for beginners
 - [BUILD.md](BUILD.md) - Detailed build and installation instructions
 - [USAGE.md](USAGE.md) - Complete usage guide with examples
 - [LICENSE](LICENSE) - License information
