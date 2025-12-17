@@ -13,11 +13,11 @@ from pathlib import Path
 class SteamOfflineClient:
     """Main Steam Offline Client class"""
     
-    def __init__(self, config_file="config.json"):
+    def __init__(self, config_file: str = "config.json"):
         """Initialize the Steam Offline Client
         
         Args:
-            config_file: Path to configuration file
+            config_file (str): Path to configuration file
         """
         self.config_file = config_file
         self.config = self.load_config()
@@ -42,11 +42,11 @@ class SteamOfflineClient:
         with open(self.config_file, 'w') as f:
             json.dump(self.config, f, indent=4)
     
-    def set_download_path(self, path):
+    def set_download_path(self, path: str):
         """Set the download path for games
         
         Args:
-            path: Path where games will be downloaded
+            path (str): Path where games will be downloaded
         """
         download_path = Path(path).resolve()
         download_path.mkdir(parents=True, exist_ok=True)
@@ -63,12 +63,12 @@ class SteamOfflineClient:
         else:
             print("  No games configured yet.")
     
-    def add_game(self, game_id, game_name):
+    def add_game(self, game_id: str, game_name: str):
         """Add a game to the library
         
         Args:
-            game_id: Steam game ID
-            game_name: Name of the game
+            game_id (str): Steam game ID
+            game_name (str): Name of the game
         """
         if 'games' not in self.config:
             self.config['games'] = {}
@@ -80,11 +80,15 @@ class SteamOfflineClient:
         self.save_config()
         print(f"Added game: {game_name} (ID: {game_id})")
     
-    def download_game(self, game_id):
+    def download_game(self, game_id: str, simulate: bool = True):
         """Download a game for offline use
         
         Args:
-            game_id: Steam game ID to download
+            game_id (str): Steam game ID to download
+            simulate (bool): If True, simulates download instead of actual download
+        
+        Returns:
+            bool: True if successful, False otherwise
         """
         if 'download_path' not in self.config:
             print("Error: Download path not set. Use --set-path to configure.")
@@ -98,9 +102,14 @@ class SteamOfflineClient:
         print(f"Downloading {game_info['name']} (ID: {game_id})...")
         print(f"To: {self.config['download_path']}")
         
-        # In a real implementation, this would use Steam API/SteamCMD
-        # For now, we'll simulate the download
-        print("Note: This is a simulation. Real implementation would use SteamCMD.")
+        if simulate:
+            # Simulation mode - for demonstration without SteamCMD
+            print("Note: Running in simulation mode. Real implementation would use SteamCMD.")
+        else:
+            # Real implementation would use SteamCMD here
+            # Example: subprocess.run(['steamcmd', '+login', 'anonymous', '+app_update', game_id, ...])
+            print("Error: Real download not implemented yet. SteamCMD integration needed.")
+            return False
         
         game_info['downloaded'] = True
         self.save_config()

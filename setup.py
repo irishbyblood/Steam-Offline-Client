@@ -12,7 +12,7 @@ setup(
     name="steam-offline-client",
     version="1.0.0",
     author="irishbyblood",
-    description="Your steam games Downloader for mobile download offline non streaming gameplay",
+    description="A Steam game downloader for mobile offline gameplay (non-streaming)",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/irishbyblood/Steam-Offline-Client",
