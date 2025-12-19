@@ -1,3 +1,16 @@
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Config files
+config.json
+
 # Visual Studio 2015 user specific files
 .vs/
 

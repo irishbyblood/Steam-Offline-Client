@@ -1,0 +1,2 @@
+# Steam Offline Client Dependencies
+# No external dependencies required for basic functionality
